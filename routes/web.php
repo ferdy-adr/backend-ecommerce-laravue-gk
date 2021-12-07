@@ -17,4 +17,4 @@ use \App\Http\Controllers\DashboardController;
 
 Route::resource('/', DashboardController::class);
 
-Auth::routes();
+Auth::routes(['register' => false]);
