@@ -46,10 +46,11 @@
                                 @error('name') <div class="text-muted">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group">
-                                <label for="category" class=" form-control-label">Kategori Produk</label>
-                                <input type="text" id="category" name="category" value="{{ old('category') }}"
-                                    class="form-control @error('category') is-invalid @enderror">
-                                @error('category') <div class="text-muted">{{ $message }}</div> @enderror
+                                <label for="categories_id" class=" form-control-label">Kategori Produk</label>
+                                <input type="text" id="categories_id" name="categories_id"
+                                    value="{{ old('categories_id') }}"
+                                    class="form-control @error('categories_id') is-invalid @enderror">
+                                @error('categories_id') <div class="text-muted">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group">
                                 <label for="description" class=" form-control-label">Deskripsi Produk</label>
