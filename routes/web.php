@@ -18,6 +18,7 @@ use \App\Http\Controllers\ProductController;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
+// Product
 Route::resource('product', ProductController::class);
 
 Auth::routes(['register' => false]);

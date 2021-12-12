@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Product;
+use App\Models\Category;
 use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
@@ -63,7 +64,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Product::findOrFail($id);
+        $category = Category::all();
+        return view('pages.product.edit', compact('data', 'category'));
     }
 
     /**
@@ -73,9 +76,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->name);
+
+        $item = Product::findOrFail($id);
+        $item->update($data);
+        return redirect()->route('product.index');
     }
 
     /**
