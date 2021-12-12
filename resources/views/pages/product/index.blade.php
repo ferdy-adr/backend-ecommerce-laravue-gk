@@ -63,7 +63,8 @@
                                             class="btn btn-primary btn-sm">
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                        <form action="#" method="POST" class="d-inline">
+                                        <form action="{{route('product.destroy', $product->id)}}" method="POST"
+                                            class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger btn-sm">
