@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Category;
 // use App\Models\ProductGallery;
 // use App\Models\TransactionDetail;
 
@@ -26,6 +27,11 @@ class Product extends Model
     protected $hidden = [
 
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'categories_id');
+    }
 
     public function productGallery()
     {
