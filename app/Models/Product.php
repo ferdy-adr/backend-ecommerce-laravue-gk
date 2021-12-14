@@ -33,9 +33,9 @@ class Product extends Model
         return $this->belongsTo(Category::class, 'categories_id');
     }
 
-    public function productGallery()
+    public function galleries()
     {
-        // return $this->hasMany(ProductGallery::class);
+        return $this->hasMany(ProductGallery::class);
     }
 
     public function transactionDetail()
