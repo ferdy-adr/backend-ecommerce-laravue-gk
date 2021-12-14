@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use App\Http\Requests\ProductGalleryRequest;
 use App\Models\Product;
-use App\Models\Category;
-use App\Http\Requests\ProductRequest;
+use App\Models\ProductGallery;
+use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ProductGalleryController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -19,7 +18,7 @@ class ProductController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -27,8 +26,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $items = Product::all();
-        return view('pages.product.index', compact('items'));
+        $items = ProductGallery::with('product')->get();
+        return view('pages.product-gallery.index')->with(['items'=>$items]);
     }
 
     /**
@@ -38,7 +37,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('pages.product.create');
+        //
     }
 
     /**
@@ -47,12 +46,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->all();
-        $data['slug'] = Str::slug($request->name);
-        Product::create($data);
-        return redirect()->route('product.index');
+        //
     }
 
     /**
@@ -74,9 +70,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $data = Product::findOrFail($id);
-        $category = Category::all();
-        return view('pages.product.edit', compact('data', 'category'));
+        //
     }
 
     /**
@@ -86,14 +80,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $data['slug'] = Str::slug($request->name);
-
-        $item = Product::findOrFail($id);
-        $item->update($data);
-        return redirect()->route('product.index');
+        //
     }
 
     /**
@@ -104,8 +93,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $item = Product::findOrFail($id);
-        $item->delete();
-        return redirect()->route('product.index');
+        //
     }
 }
