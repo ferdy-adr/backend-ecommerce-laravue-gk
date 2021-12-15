@@ -19,7 +19,7 @@ class ProductGallery extends Model
     ];
 
     public function product(){
-        return $this->belongsTo(Product::class, 'product_id', 'id');
+        return $this->belongsTo(Product::class, 'products_id', 'id');
     }
 
     public function getPhotoAttribute($value){

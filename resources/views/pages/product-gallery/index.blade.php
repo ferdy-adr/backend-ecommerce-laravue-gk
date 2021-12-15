@@ -59,7 +59,7 @@ active
                                     <td>{{ $gallery->id }}</td>
                                     <td>{{$gallery->product->name}}</td>
                                     <td><img src="{{url($gallery->photo)}}" alt=""></td>
-                                    <td>{{$item->is_default ? 'Ya' : 'Tidak'}}</td>
+                                    <td>{{$gallery->is_default ? 'Ya' : 'Tidak'}}</td>
                                     <td>
                                         <form action="{{route('product-gallery.destroy', $gallery->id)}}" method="POST"
                                             class="d-inline">

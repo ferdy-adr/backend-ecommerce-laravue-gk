@@ -37,7 +37,8 @@ class ProductGalleryController extends Controller
      */
     public function create()
     {
-        //
+        $product = Product::all();
+        return view('pages.product-gallery.create')->with(['product'=>$product]);
     }
 
     /**
@@ -46,9 +47,12 @@ class ProductGalleryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductGalleryRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['photo'] = $request->file('photo')->store('assets/product', 'public');
+        ProductGallery::create($data);
+        return redirect()->route('product-gallery.index');
     }
 
     /**
