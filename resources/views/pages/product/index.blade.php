@@ -1,3 +1,9 @@
+@extends('components/sidebar')
+
+@section('product.index')
+active
+@endsection
+
 @extends('layouts.dashboard')
 
 @section('breadcrumbs')
@@ -16,7 +22,7 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                            <li class="active">Product</li>
+                            <li class="active">Produk</li>
                         </ol>
                     </div>
                 </div>
@@ -52,11 +58,12 @@
                                 <tr>
                                     <td class="serial">{{ $product->id }}.</td>
                                     <td> <span class="name">{{ $product->name }}</span> </td>
-                                    <td>{{ $product->categories_id }}</td>
-                                    <td> <span class="product">{{ $product->price }}</span> </td>
-                                    <td><span class="count">{{ $product->quantity }}</span></td>
+                                    <td>{{ $product->category->name }}</td>
+                                    <td> <span class="price">$ {{ $product->price }}</span> </td>
+                                    <td><span class="quantity">{{ $product->quantity }}</span></td>
                                     <td>
-                                        <a href="#" class="btn btn-info btn-sm">
+                                        <a href="{{route('product.gallery', $product->id)}}"
+                                            class="btn btn-info btn-sm">
                                             <i class="fa fa-picture-o"></i>
                                         </a>
                                         <a href="{{route('product.edit', $product->id)}}"

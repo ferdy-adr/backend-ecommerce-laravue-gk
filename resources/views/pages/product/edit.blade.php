@@ -1,3 +1,9 @@
+@extends('components/sidebar')
+
+@section('product.index')
+active
+@endsection
+
 @extends('layouts.dashboard')
 
 @section('breadcrumbs')

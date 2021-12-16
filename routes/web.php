@@ -20,7 +20,9 @@ use \App\Http\Controllers\ProductGalleryController;
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 // Product
+Route::get('/product/{id}/gallery', [ProductController::class, 'gallery'])->name('product.gallery');
 Route::resource('product', ProductController::class);
+
 
 // Product Gallery
 Route::resource('product-gallery', ProductGalleryController::class);
