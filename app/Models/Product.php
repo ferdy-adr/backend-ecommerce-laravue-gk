@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Category;
-// use App\Models\ProductGallery;
-// use App\Models\TransactionDetail;
+use App\Models\ProductGallery;
+use App\Models\TransactionDetail;
 
 
 class Product extends Model
@@ -40,6 +40,6 @@ class Product extends Model
 
     public function transactionDetail()
     {
-        // return $this->hasMany(TransactionDetail::class);
+        return $this->hasMany(TransactionDetail::class, 'products_id');
     }
 }
