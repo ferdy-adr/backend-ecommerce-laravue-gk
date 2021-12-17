@@ -24,10 +24,14 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/product/{id}/gallery', [ProductController::class, 'gallery'])->name('product.gallery');
 Route::resource('product', ProductController::class);
 
+
 // Product Gallery
 Route::resource('product-gallery', ProductGalleryController::class);
 
+
 // Transaction
+Route::get('/transaction/{id}/set-status', [TransactionController::class, 'setStatus'])->name('transaction.status'); // set Status
 Route::resource('transaction', TransactionController::class);
+
 
 Auth::routes(['register' => false]);
