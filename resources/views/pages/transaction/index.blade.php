@@ -89,10 +89,11 @@ active
                                             data-title="Detail Transaksi {{$item->uuid}}" class="btn btn-info btn-sm">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="{{route('product.edit', $item->id)}}" class="btn btn-primary btn-sm">
+                                        <a href="{{route('transaction.edit', $item->id)}}"
+                                            class="btn btn-primary btn-sm">
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                        <form action="{{route('product.destroy', $item->id)}}" method="POST"
+                                        <form action="{{route('transaction.destroy', $item->id)}}" method="POST"
                                             class="d-inline">
                                             @csrf
                                             @method('DELETE')
