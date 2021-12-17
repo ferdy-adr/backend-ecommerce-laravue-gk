@@ -84,7 +84,7 @@ active
                                         </a> --}}
 
                                         @endif
-                                        <a href="#mymodal" data-remote="{{route('product.edit', $item->id)}}"
+                                        <a href="#mymodal" data-remote="{{route('transaction.show', $item->id)}}"
                                             data-toggle="modal" data-target="#mymodal"
                                             data-title="Detail Transaksi {{$item->uuid}}" class="btn btn-info btn-sm">
                                             <i class="fa fa-eye"></i>
