@@ -43,7 +43,9 @@
     <!-- /#right-panel -->
 
     {{-- script --}}
+    @stack('before-script')
     @include('components.script')
+    @stack('after-script')
 </body>
 
 </html>
